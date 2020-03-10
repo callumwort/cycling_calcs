@@ -1,0 +1,21 @@
+FTP = int(input("What is your Functional Threshold Power?: "))
+
+zone_1 = FTP * 0.55
+zone_2_lower = FTP * 0.56
+zone_2_upper = FTP * 0.75
+zone_3_lower = FTP * 0.76
+zone_3_upper = FTP * 0.9
+zone_4_lower = FTP * 0.91
+zone_4_upper = FTP * 1.05
+zone_5_lower = FTP * 1.06
+zone_5_upper = FTP * 1.2
+zone_6 = FTP * 1.2
+
+print('\nYour power zones are:')
+print('\nZone 1 (Active Recovery) is: <',("%.0f" % zone_1),('W'))
+print('Zone 2 (Endurance) is:',("%.0f" % zone_2_lower),('W'),('to'),("%.0f" % zone_2_upper),('W'))
+print('Zone 3 (Tempo) is:',("%.0f" % zone_3_lower),('W'),('to'),("%.0f" % zone_3_upper),('W'))
+print('Zone 4 (Threshold) is:',("%.0f" % zone_4_lower),('W'),('to'),("%.0f" % zone_4_upper),('W'))
+print('Zone 5 (VO2 Max) is:',("%.0f" % zone_5_lower),('W'),('to'),("%.0f" % zone_5_upper),('W'))
+print('Zone 6 (Anaerobic Capacity) is: >',("%.0f" % zone_6),('W'))
+
