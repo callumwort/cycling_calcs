@@ -1,0 +1,108 @@
+#power_zone_calc2
+
+import tkinter as tk
+
+def main():
+    window= tk.Tk()
+    window.title("Cycling Power Zones")
+    window.geometry("500x350")
+    window.configure(bg="black")
+    
+    label1 = tk.Label(window, text="Enter average power from 20 min test:")
+    label1.place(x=50,y=30)
+    label1.configure(bg='black')
+    label1.configure(fg='snow')
+    
+    textbox1 = tk.Entry(window, width=12)
+    textbox1.place(x=300,y=30)
+    label1.configure(bg='black')
+    label1.configure(fg='snow')
+    
+    
+    label2 = tk.Label(window, text="Power Zones:")
+    label2.place(x=50,y=125)
+    label2.configure(bg='black')
+    label2.configure(fg='snow')
+    
+    # Zone 1
+    label3 = tk.Label(window, text=" ")
+    label3.place(x=180,y=125)
+    label3.configure(bg='black')
+    label3.configure(fg='ivory4')
+    
+    # Zone 2
+    label4 = tk.Label(window, text=" ")
+    label4.place(x=180,y=150)
+    label4.configure(bg='black')
+    label4.configure(fg='royal blue3')
+    
+    # Zone 3
+    label5 = tk.Label(window, text=" ")
+    label5.place(x=180,y=175)
+    label5.configure(bg='black')
+    label5.configure(fg='cyan')
+    
+    # Zone 4
+    label6 = tk.Label(window, text=" ")
+    label6.place(x=180,y=200)
+    label6.configure(bg='black')
+    label6.configure(fg='green2')
+    
+    # Zone 5
+    label7 = tk.Label(window, text=" ")
+    label7.place(x=180,y=225)
+    label7.configure(bg='black')
+    label7.configure(fg='yellow2')
+    
+    # Zone 6
+    label8 = tk.Label(window, text=" ")
+    label8.place(x=180,y=250)
+    label8.configure(bg='black')
+    label8.configure(fg='red2')
+    
+    # FTP
+    label9 = tk.Label(window, text="Functional Threshold Power:")
+    label9.place(x=50,y=75)
+    label9.configure(bg='black')
+    label9.configure(fg='snow')
+    
+    # FTP Answer
+    label10 = tk.Label(window, text=" ")
+    label10.place(x=300,y=75)
+    label10.configure(bg='black')
+    label10.configure(fg='snow')
+         
+    def btn1_click():
+        ftp = round(float(textbox1.get()) * 0.95,5)
+        label10.configure(text = str("%.0f" %ftp)+ ' W')
+    
+        zone_1 = round(float(ftp) * 0.55,5)
+        label3.configure(text = "Zone 1 (Active Recovery) is:  <" + str("%.0f" %zone_1)+ ' W')
+        
+        zone_2_l = round(float(ftp) * 0.56,5)
+        zone_2_u = round(float(ftp) * 0.75,5)
+        label4.configure(text = "Zone 2 (Endurance) is: " + str("%.0f" %zone_2_l)+ ' W' + ' to ' + str("%.0f" %zone_2_u)+ ' W')
+        
+        zone_3_l = round(float(ftp) * 0.76,5)
+        zone_3_u = round(float(ftp) * 0.9,5)
+        label5.configure(text = "Zone 3 (Tempo) is: " + str("%.0f" %zone_3_l)+ ' W' + ' to ' + str("%.0f" %zone_3_u)+ ' W')
+        
+        zone_4_l = round(float(ftp) * 0.91,5)
+        zone_4_u = round(float(ftp) * 1.05,5)
+        label6.configure(text = "Zone 4 (Threshold) is: " + str("%.0f" %zone_4_l)+ ' W' + ' to ' + str("%.0f" %zone_4_u)+ ' W')
+        
+        zone_5_l = round(float(ftp) * 1.06,5)
+        zone_5_u = round(float(ftp) * 1.2,5)
+        label7.configure(text = "Zone 5 (V02 Max) is: " + str("%.0f" %zone_5_l)+ ' W' + ' to ' + str("%.0f" %zone_5_u)+ ' W')
+        
+        zone_6 = round(float(ftp) * 1.2,5)
+        label8.configure(text = "Zone 6 (Anaerobic) is:  >" + str("%.0f" %zone_6)+ ' W')
+        
+
+    # Button
+    btn1 = tk.Button(window, text=" Calculate FTP and Power Zones", command=btn1_click)
+    btn1.place(x=150,y=300)
+    window.mainloop()
+    
+
+main()
